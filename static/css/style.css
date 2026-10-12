@@ -1,0 +1,89 @@
+/* Gemeinsame Farben und Schrift aller Seiten */
+:root {
+    color-scheme: light;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #18332d;
+    background: #f3f6f2;
+    /* Hier den Abstand unter dem Header und über dem Footer einstellen. */
+    --content-gap-after-header: 72px;
+    --content-gap-before-footer: 72px;
+    --site-bar-height: 72px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(24, 51, 45, .035) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(24, 51, 45, .035) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* Fester Seitenrahmen mit gemeinsamem Hintergrund */
+.page {
+    width: min(100% - 48px, 1100px);
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Gemeinsame Kopf- und Fußzeile */
+.site-header,
+.site-footer {
+    flex: 0 0 auto;
+    height: var(--site-bar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 1px solid #cbd6ce;
+    color: #51655e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.brand {
+    color: #18332d;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.page-content {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: var(--content-gap-after-header);
+    padding-bottom: var(--content-gap-before-footer);
+}
+
+/* Gemeinsame Fußzeile */
+.site-footer {
+    border-top: 1px solid #cbd6ce;
+    border-bottom: 0;
+    font-weight: 400;
+    letter-spacing: .3px;
+    text-transform: none;
+}
+
+/* Gemeinsame Anpassungen für schmale Bildschirme */
+@media (max-width: 520px) {
+    .page {
+        width: min(100% - 36px, 900px);
+    }
+
+}

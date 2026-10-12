@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.title }} | Roberto Kätker{% endblock %}
+{% block page_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpage.css') }}">
+{% endblock %}
+{% block header_meta %}{{ course.semester }}{% endblock %}
+
+{% block content %}
+    <div class="course-content">
+        <div class="indicator" aria-hidden="true"><span class="robot">&#129302;</span></div>
+        <p class="eyebrow">{{ course.provider }}</p>
+        <h1>{{ course.title }}</h1>
+        <p class="description">{{ course.description }}</p>
+
+        <dl class="details">
+            {% for property in course.properties %}
+            <div class="detail-row">
+                <dt>{{ property.label }}</dt>
+                <dd>
+                    <ul class="property-values">
+                        {% for value in property["values"] %}
+                        <li>{{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+            </div>
+            {% endfor %}
+        </dl>
+    </div>
+{% endblock %}
+
+{% block footer_brand %}{{ course.footer }}{% endblock %}
+{% block footer_note %}{{ current_date }}{% endblock %}

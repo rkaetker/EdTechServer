@@ -1,0 +1,105 @@
+/* Gestaltung nur für die Kurs-Startseite */
+.course-content {
+    width: 100%;
+}
+
+/* Robotersymbol */
+.course-content .indicator {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 36px;
+    border: 1px solid #8fc7aa;
+    border-radius: 50%;
+    background: #e1f2e7;
+}
+
+.course-content .robot {
+    font-family: sans-serif;
+    font-size: 31px;
+    line-height: 1;
+}
+
+/* Kursanbieter, Titel und Beschreibung */
+.course-content .eyebrow {
+    margin: 0 0 14px;
+    color: #b45a36;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.course-content h1 {
+    max-width: 100%;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.08;
+}
+
+.course-content .description {
+    max-width: 480px;
+    margin: 20px 0 0;
+    color: #51655e;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* Kurseigenschaften mit Linien um den gesamten Block */
+.course-content .details {
+    display: grid;
+    width: min(100%, 620px);
+    margin: 48px 0 0;
+    padding: 0;
+    border-top: 1px solid #cbd6ce;
+    border-bottom: 1px solid #cbd6ce;
+}
+
+.course-content .detail-row {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) minmax(0, 2fr);
+    gap: 24px;
+    align-items: start;
+    padding: 16px 0;
+}
+
+.course-content dt {
+    color: #71827b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.course-content dd {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.course-content .property-values {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Kursseite auf schmalen Bildschirmen */
+@media (max-width: 520px) {
+    .course-content h1 {
+        font-size: 42px;
+    }
+
+    .course-content .details {
+        width: 100%;
+    }
+
+    .course-content .detail-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "sections": [
+    {
+      "heading": "Stunde",
+      "links": [
+        {
+          "label": "LED-Matrix",
+          "page_id": "ledmatrix"
+        }
+      ]
+    },
+    {
+      "heading": "Lernmaterial",
+      "links": [
+        {
+          "label": "Tasten-Kürzel",
+          "page_id": "shortcut"
+        }
+      ]
+    },
+    {
+      "heading": "Lehrerbereich",
+      "links": [
+        {
+          "label": "Download",
+          "page_id": "download"
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "ledmatrix": {
+      "template": "stunde/ledmatrix.html"
+    },
+    "shortcut": {
+      "template": "lernmaterial/shortcut.html"
+    },
+    "download": {
+      "template": "lehrerbereich/download.html"
+    }
+  }
+}

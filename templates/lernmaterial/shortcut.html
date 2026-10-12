@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Lernmaterial | Yemp EdTech{% endblock %}
+{% block header_meta %}Lernmaterial{% endblock %}
+{% block page_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shortcut.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="shortcut-page" aria-labelledby="shortcut-title">
+        <div class="shortcut-heading">
+            <div>
+                <p class="shortcut-eyebrow">Shortcuts</p>
+                <h1 id="shortcut-title">Tasten-Kürzel</h1>
+            </div>
+        </div>
+
+        <div class="shortcut-controls">
+            <label class="shortcut-picker" for="shortcut-select">
+                <span class="shortcut-select-label">Befehl auswählen</span>
+                <select id="shortcut-select">
+                    <option value="copy" data-keys="CTRL C" data-combination="Strg + C" selected>Kopieren</option>
+                    <option value="paste" data-keys="CTRL V" data-combination="Strg + V">Einfügen</option>
+                    <option value="cut" data-keys="CTRL X" data-combination="Strg + X">Ausschneiden</option>
+                    <option value="undo" data-keys="CTRL Z" data-combination="Strg + Z">Rückgängig</option>
+                    <option value="redo" data-keys="CTRL Y" data-combination="Strg + Y">Wiederholen</option>
+                    <option value="select-all" data-keys="CTRL A" data-combination="Strg + A">Alles markieren</option>
+                    <option value="save" data-keys="CTRL S" data-combination="Strg + S">Speichern</option>
+                </select>
+            </label>
+            <p class="shortcut-combination" id="shortcut-combination" aria-live="polite">Strg + C</p>
+        </div>
+
+        <div class="keyboard-scroll">
+            <div class="keyboard" aria-label="Deutsche QWERTZ-Tastatur">
+                <div class="keyboard-brand"><span>Tastatur</span><span>DE</span></div>
+                <div class="keyboard-frame">
+                    <div class="keyboard-main">
+                        <div class="key-row function-row">
+                            <kbd class="keycap keycap--utility" data-key="ESC">Esc</kbd>
+                            <span class="key-gap"></span>
+                            <kbd class="keycap keycap--utility" data-key="F1">F1</kbd><kbd class="keycap keycap--utility" data-key="F2">F2</kbd><kbd class="keycap keycap--utility" data-key="F3">F3</kbd><kbd class="keycap keycap--utility" data-key="F4">F4</kbd>
+                            <span class="key-gap"></span>
+                            <kbd class="keycap keycap--utility" data-key="F5">F5</kbd><kbd class="keycap keycap--utility" data-key="F6">F6</kbd><kbd class="keycap keycap--utility" data-key="F7">F7</kbd><kbd class="keycap keycap--utility" data-key="F8">F8</kbd>
+                            <span class="key-gap"></span>
+                            <kbd class="keycap keycap--utility" data-key="F9">F9</kbd><kbd class="keycap keycap--utility" data-key="F10">F10</kbd><kbd class="keycap keycap--utility" data-key="F11">F11</kbd><kbd class="keycap keycap--utility" data-key="F12">F12</kbd>
+                        </div>
+
+                        <div class="key-row number-row">
+                            <kbd class="keycap keycap--symbol" data-key="CARET"><span>^</span><small>°</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="1"><span>1</span><small>!</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="2"><span>2</span><small>"</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="3"><span>3</span><small>§</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="4"><span>4</span><small>$</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="5"><span>5</span><small>%</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="6"><span>6</span><small>&amp;</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="7"><span>7</span><small>/</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="8"><span>8</span><small>(</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="9"><span>9</span><small>)</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="0"><span>0</span><small>=</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="SS"><span>ß</span><small>?</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="ACUTE"><span>´</span><small>`</small></kbd>
+                            <kbd class="keycap keycap--wide" data-key="BACKSPACE">Rück</kbd>
+                        </div>
+
+                        <div class="key-row q-row">
+                            <kbd class="keycap keycap--wide keycap--icon" data-key="TAB" aria-label="Tab-Taste" title="Tab-Taste">&#x21B9;</kbd>
+                            <kbd class="keycap" data-key="Q">Q</kbd><kbd class="keycap" data-key="W">W</kbd><kbd class="keycap" data-key="E">E</kbd><kbd class="keycap" data-key="R">R</kbd><kbd class="keycap" data-key="T">T</kbd><kbd class="keycap" data-key="Z">Z</kbd><kbd class="keycap" data-key="U">U</kbd><kbd class="keycap" data-key="I">I</kbd><kbd class="keycap" data-key="O">O</kbd><kbd class="keycap" data-key="P">P</kbd>
+                            <kbd class="keycap" data-key="UE">Ü</kbd><kbd class="keycap" data-key="PLUS">+</kbd>
+                            <kbd class="keycap keycap--wide keycap--icon" data-key="ENTER" aria-label="Enter-Taste" title="Enter-Taste">&#x23CE;</kbd>
+                        </div>
+
+                        <div class="key-row home-row">
+                            <kbd class="keycap keycap--extra-wide keycap--icon" data-key="CAPS" aria-label="Feststelltaste" title="Feststelltaste">&#x21E9;</kbd>
+                            <kbd class="keycap" data-key="A">A</kbd><kbd class="keycap" data-key="S">S</kbd><kbd class="keycap" data-key="D">D</kbd><kbd class="keycap" data-key="F">F</kbd><kbd class="keycap" data-key="G">G</kbd><kbd class="keycap" data-key="H">H</kbd><kbd class="keycap" data-key="J">J</kbd><kbd class="keycap" data-key="K">K</kbd><kbd class="keycap" data-key="L">L</kbd>
+                            <kbd class="keycap" data-key="OE">Ö</kbd><kbd class="keycap" data-key="AE">Ä</kbd><kbd class="keycap" data-key="HASH">#</kbd>
+                            <kbd class="keycap keycap--wide keycap--icon" data-key="ENTER" aria-label="Enter-Taste" title="Enter-Taste">&#x23CE;</kbd>
+                        </div>
+
+                        <div class="key-row z-row">
+                            <kbd class="keycap keycap--extra-wide keycap--icon" data-key="SHIFT" aria-label="Umschalttaste" title="Umschalttaste">&#x21E7;</kbd>
+                            <kbd class="keycap keycap--symbol" data-key="LTGT"><span>&lt; &gt;</span><small>|</small></kbd>
+                            <kbd class="keycap" data-key="Y">Y</kbd><kbd class="keycap" data-key="X">X</kbd><kbd class="keycap" data-key="C">C</kbd><kbd class="keycap" data-key="V">V</kbd><kbd class="keycap" data-key="B">B</kbd><kbd class="keycap" data-key="N">N</kbd><kbd class="keycap" data-key="M">M</kbd>
+                            <kbd class="keycap keycap--symbol" data-key="COMMA"><span>,</span><small>;</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="DOT"><span>.</span><small>:</small></kbd>
+                            <kbd class="keycap keycap--symbol" data-key="MINUS"><span>-</span><small>_</small></kbd>
+                            <kbd class="keycap keycap--extra-wide keycap--icon" data-key="SHIFT" aria-label="Umschalttaste" title="Umschalttaste">&#x21E7;</kbd>
+                        </div>
+
+                        <div class="key-row bottom-row">
+                            <kbd class="keycap keycap--modifier" data-key="CTRL">Strg</kbd>
+                            <kbd class="keycap keycap--modifier" data-key="FN">Fn</kbd>
+                            <kbd class="keycap keycap--modifier keycap--icon" data-key="META" aria-label="Windows-Taste" title="Windows-Taste">&#x229E;</kbd>
+                            <kbd class="keycap keycap--modifier" data-key="ALT">Alt</kbd>
+                            <kbd class="keycap keycap--space" data-key="SPACE"> </kbd>
+                            <kbd class="keycap keycap--modifier" data-key="ALTGR">Alt Gr</kbd>
+                            <kbd class="keycap keycap--modifier" data-key="MENU">Menü</kbd>
+                            <kbd class="keycap keycap--modifier" data-key="CTRL">Strg</kbd>
+                        </div>
+                    </div>
+
+                    <div class="keyboard-extras">
+                        <div class="key-row extra-row"><kbd class="keycap keycap--utility" data-key="PRINT">Druck</kbd><kbd class="keycap keycap--utility" data-key="SCROLL">Rollen</kbd><kbd class="keycap keycap--utility" data-key="PAUSE">Pause</kbd></div>
+                        <div class="key-row extra-row"><kbd class="keycap keycap--utility" data-key="INSERT">Einfg</kbd><kbd class="keycap keycap--utility" data-key="HOME">Pos 1</kbd><kbd class="keycap keycap--utility" data-key="PAGEUP">Bild ↑</kbd></div>
+                        <div class="key-row extra-row"><kbd class="keycap keycap--utility" data-key="DELETE">Entf</kbd><kbd class="keycap keycap--utility" data-key="END">Ende</kbd><kbd class="keycap keycap--utility" data-key="PAGEDOWN">Bild ↓</kbd></div>
+                        <div class="arrow-cluster">
+                            <kbd class="keycap keycap--utility" data-key="ARROWUP">↑</kbd>
+                            <kbd class="keycap keycap--utility" data-key="ARROWLEFT">←</kbd><kbd class="keycap keycap--utility" data-key="ARROWDOWN">↓</kbd><kbd class="keycap keycap--utility" data-key="ARROWRIGHT">→</kbd>
+                        </div>
+                    </div>
+
+                    <div class="keyboard-numpad">
+                        <div class="numpad-top-row">
+                            <kbd class="keycap keycap--utility" data-key="NUM">Num</kbd>
+                            <kbd class="keycap keycap--utility" data-key="DIVIDE">/</kbd>
+                            <kbd class="keycap keycap--utility" data-key="MULTIPLY">*</kbd>
+                            <kbd class="keycap keycap--utility" data-key="SUBTRACT">-</kbd>
+                        </div>
+                        <div class="numpad-body">
+                            <div class="numpad-digits">
+                                <kbd class="keycap keycap--utility" data-key="NUM7">7</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM8">8</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM9">9</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM4">4</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM5">5</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM6">6</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM1">1</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM2">2</kbd>
+                                <kbd class="keycap keycap--utility" data-key="NUM3">3</kbd>
+                                <kbd class="keycap keycap--utility keycap--double" data-key="NUM0">0</kbd>
+                                <kbd class="keycap keycap--utility" data-key="DECIMAL">,</kbd>
+                            </div>
+                            <div class="numpad-operators">
+                                <kbd class="keycap keycap--utility keycap--tall" data-key="ADD">+</kbd>
+                                <kbd class="keycap keycap--utility keycap--tall" data-key="NUMENTER">Enter</kbd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block page_scripts %}
+    <script src="{{ url_for('static', filename='js/shortcut.js') }}" defer></script>
+{% endblock %}

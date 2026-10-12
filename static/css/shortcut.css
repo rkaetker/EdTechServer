@@ -1,0 +1,423 @@
+/* Eigene Gestaltung für die deutsche QWERTZ-Tastatur */
+.shortcut-page {
+	width: 100%;
+	color: #18332d;
+}
+
+.shortcut-heading {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 20px;
+}
+
+.shortcut-eyebrow {
+	margin: 0 0 8px;
+	color: #b45a36;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.3px;
+}
+
+.shortcut-heading h1 {
+	margin: 0;
+	font-family: Georgia, serif;
+	font-size: 42px;
+	font-weight: 400;
+	line-height: 1.1;
+}
+
+.shortcut-combination {
+	min-width: 140px;
+	flex: 0 0 auto;
+	margin: 0;
+	padding: 10px 14px;
+	border-left: 3px solid #b45a36;
+	background: #e5ebe4;
+	color: #18332d;
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+}
+
+/* Befehlsauswahl und aktuell dargestellte Tastenkombination */
+.shortcut-controls {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	gap: 18px;
+	margin-bottom: 26px;
+}
+
+.shortcut-picker {
+	position: relative;
+	z-index: 1;
+	width: min(100%, 440px);
+	display: grid;
+	gap: 7px;
+}
+
+.shortcut-picker:focus-within {
+	z-index: 20;
+}
+
+.shortcut-select-label {
+	color: #71827b;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.shortcut-picker select {
+	width: 100%;
+	min-height: 48px;
+	padding: 0 42px 0 14px;
+	border: 1px solid #aab7ad;
+	border-radius: 4px;
+	appearance: none;
+	background-color: rgba(255, 255, 255, .88);
+	background-image: linear-gradient(45deg, transparent 50%, #18332d 50%),
+	                  linear-gradient(135deg, #18332d 50%, transparent 50%);
+	background-position: calc(100% - 19px) 20px, calc(100% - 14px) 20px;
+	background-size: 5px 5px, 5px 5px;
+	background-repeat: no-repeat;
+	color: #18332d;
+	font: inherit;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.shortcut-picker select:focus-visible {
+	position: relative;
+	z-index: 21;
+	outline: none;
+	box-shadow: inset 0 0 0 2px #b45a36;
+}
+
+/* Tastaturgehäuse und echte Reihenanordnung */
+.keyboard-scroll {
+	width: 100%;
+	overflow-x: auto;
+	padding: 5px 0 16px;
+	scrollbar-color: #aab7ad #e5ebe4;
+}
+
+.keyboard {
+	width: max-content;
+	min-width: 100%;
+	padding: 16px;
+	border: 1px solid #aab7ad;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #e4e9e2, #cfd8cf);
+	box-shadow: 0 14px 24px rgba(24, 51, 45, .12), inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+.keyboard-brand {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 2px 12px;
+	color: #63756c;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 1.4px;
+}
+
+.keyboard-frame {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.keyboard-main,
+.keyboard-extras {
+	display: grid;
+	gap: 7px;
+}
+
+.keyboard-main {
+	flex: 0 0 750px;
+}
+
+.key-row {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.keyboard-main .key-row {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(32, minmax(0, 1fr));
+}
+
+.keyboard-main .keycap {
+	min-width: 0;
+	width: auto;
+	flex: none;
+	grid-column: span 2;
+}
+
+.keyboard-main .key-gap {
+	width: auto;
+	flex: none;
+	grid-column: span 2;
+}
+
+.keyboard-main .keycap--wide {
+	grid-column: span 3;
+}
+
+.keyboard-main .number-row [data-key="BACKSPACE"] {
+	grid-column: span 6;
+}
+
+.keyboard-main .q-row [data-key="TAB"] {
+	grid-column: span 3;
+}
+
+.keyboard-main .q-row [data-key="ENTER"] {
+	grid-column: span 5;
+}
+
+.keyboard-main .home-row [data-key="CAPS"],
+.keyboard-main .home-row [data-key="ENTER"] {
+	grid-column: span 4;
+}
+
+.keyboard-main .z-row [data-key="SHIFT"]:first-child {
+	grid-column: span 4;
+}
+
+.keyboard-main .z-row [data-key="SHIFT"]:last-child {
+	grid-column: span 6;
+}
+
+.keyboard-main .bottom-row [data-key="CTRL"] {
+	grid-column: span 3;
+}
+
+.keyboard-main .bottom-row [data-key="SPACE"] {
+	grid-column: span 16;
+}
+
+.function-row {
+	margin-bottom: 0;
+}
+
+.key-gap {
+	width: 10px;
+	flex: 0 0 10px;
+}
+
+.keycap {
+	position: relative;
+	flex: 0 0 43px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #aab5ab;
+	border-bottom: 4px solid #87948a;
+	border-radius: 5px;
+	background: linear-gradient(#fff, #f0f3ee);
+	color: #243a31;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	transition: transform 100ms ease, border-color 100ms ease, background-color 100ms ease, box-shadow 100ms ease;
+	user-select: none;
+}
+
+.keycap--icon {
+	font-family: sans-serif;
+	font-size: 20px;
+	line-height: 1;
+}
+
+.keycap--utility {
+	flex-basis: 43px;
+	height: 37px;
+	font-size: 10px;
+}
+
+.keycap--symbol {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 4px 6px;
+}
+
+.keycap--symbol small {
+	align-self: flex-end;
+	font-size: 9px;
+	font-weight: 400;
+}
+
+.keycap--wide {
+	flex-basis: 67px;
+	font-size: 11px;
+}
+
+.keycap--extra-wide {
+	flex-basis: 88px;
+	font-size: 10px;
+}
+
+.keycap--modifier {
+	flex-basis: 57px;
+	font-size: 10px;
+}
+
+.keycap--space {
+	flex-basis: 250px;
+}
+
+.keycap--tall {
+	height: 82px;
+}
+
+.keycap--double {
+	flex-basis: 91px;
+}
+
+.keyboard-extras,
+.keyboard-numpad {
+	padding-top: 52px;
+}
+
+.keyboard-numpad {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.numpad-top-row,
+.numpad-digits {
+	display: grid;
+	grid-template-columns: repeat(4, 38px);
+	gap: 4px;
+}
+
+.numpad-body {
+	display: grid;
+	grid-template-columns: repeat(3, 38px) 38px;
+	gap: 4px;
+}
+
+.numpad-digits {
+	grid-column: 1 / span 3;
+	grid-template-columns: repeat(3, 38px);
+	grid-template-rows: repeat(4, 37px);
+}
+
+.numpad-digits [data-key="NUM0"] {
+	grid-column: span 2;
+}
+
+.numpad-operators {
+	display: grid;
+	grid-column: 4;
+	grid-row: 1;
+	grid-template-rows: repeat(2, 1fr);
+	gap: 4px;
+}
+
+.keyboard-numpad .keycap {
+	width: 38px;
+	min-width: 0;
+	height: 37px;
+	flex: none;
+}
+
+.numpad-operators .keycap {
+	height: auto;
+}
+
+.numpad-digits .keycap--double {
+	width: auto;
+}
+
+.extra-row {
+	gap: 5px;
+}
+
+.arrow-cluster {
+	width: 139px;
+	display: grid;
+	grid-template-columns: repeat(3, 43px);
+	grid-template-rows: repeat(2, 37px);
+	justify-content: center;
+	gap: 5px;
+	margin-top: 7px;
+}
+
+.arrow-cluster [data-key="ARROWUP"] {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.arrow-cluster [data-key="ARROWLEFT"] {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.arrow-cluster [data-key="ARROWDOWN"] {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.arrow-cluster [data-key="ARROWRIGHT"] {
+	grid-column: 3;
+	grid-row: 2;
+}
+
+.keycap.is-active {
+	border-color: #4d8067;
+	background: linear-gradient(#d7eee0, #b7d9c4);
+	color: #123c2a;
+}
+
+.keycap.is-pressing {
+	transform: translateY(3px);
+	border-bottom-width: 1px;
+	box-shadow: 0 1px 2px rgba(24, 51, 45, .22);
+}
+
+@media (max-width: 760px) {
+	.shortcut-heading h1 {
+		font-size: 36px;
+	}
+}
+
+@media (max-width: 480px) {
+	.shortcut-heading {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.shortcut-heading h1 {
+		font-size: 32px;
+	}
+
+	.shortcut-controls {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.shortcut-picker {
+		width: 100%;
+	}
+
+	.shortcut-combination {
+		align-self: flex-start;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.keycap {
+		transition: none;
+	}
+}

@@ -1,0 +1,29 @@
+{
+  "semester": "WiSe 2026/27",
+  "provider": "Junior Uni@Kraftstation",
+  "title": "Arduino Workshop",
+  "description": "In diesem Kurs lernst du an den Arduino verschiedene Sensoren anzuschließen und damit dein eigenes kleines Projekt zu realisieren..",
+  "properties": [
+    {
+      "label": "Programmiersprache",
+      "values": ["C++"]
+    },
+    {
+      "label": "Sensoren & Aktoren",
+      "values": ["Touch-Sensor,Potentiometer", "LED-Matrix,Servo-Motor,LED,LCD-Display (16x2)"]
+    },
+    {
+      "label": "IDE",
+      "values": ["Arduino IDE 2.0"]
+    },
+    {
+      "label": "Library",
+      "values": ["LiquidCrystl_I2C"]
+    },
+    {
+      "label": "Board",
+      "values": ["Arduino Uno R4 Wifi"]
+    }
+  ],
+  "footer": "Yemp EdTech"
+}
