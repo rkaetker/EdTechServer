@@ -1,0 +1,21 @@
+{
+  "id": "calliope-workshop",
+  "title": "Calliope Workshop",
+  "symbol": "🤖",
+  "description": "In diesem Kurs lernst du an die Calliope kennen. Du lernst verschiedene Sensoren anzuschließen und damit dein eigenes kleines Projekt zu realisieren..",
+  "properties": [
+    {
+      "label": "Programmiersprache",
+      "values": ["Blockprogrammierung"]
+    },
+    {
+      "label": "Sensoren & Aktoren",
+      "values": ["Druckknöpfe, Funkmodul", "Servo-Motor,LED, RGB-LED"]
+    },
+    {
+      "label": "IDE",
+      "values": ["Calliope Make Code"]
+    }
+  ],
+  "footer": "Yemp EdTech"
+}

@@ -12,15 +12,11 @@ def configured_path(environment_name, default):
     return path.resolve()
 
 
-# Auf diesen Ordner mit mainpage.json, sidebar.json und weiteren Kursdaten zeigen.
-COURSE_DATA_DIR = configured_path(
-    "YEMP_COURSE_DATA_DIR", "courses/arduino-workshop"
-)
-MAINPAGE_DATA_FILE = COURSE_DATA_DIR / "mainpage.json"
-SIDEBAR_DATA_FILE = COURSE_DATA_DIR / "sidebar.json"
+# Strukturierter JSON-Datenspeicher mit Kursen, Klassen und Inhaltsbausteinen.
+CONTENT_DATA_DIR = configured_path("YEMP_CONTENT_DATA_DIR", "data")
 
-# Speicherort für später hochgeladene Skriptdateien.
-SCRIPT_STORAGE_DIR = configured_path("YEMP_SCRIPT_STORAGE_DIR", "storage/scripts")
+# Standardklasse für nicht-interaktive Starts, z. B. in Docker/Gunicorn.
+DEFAULT_CLASS_ID = os.environ.get("YEMP_DEFAULT_CLASS_ID")
 
 # Einstellungen für den lokalen Flask-Entwicklungsserver.
 SERVER_HOST = os.environ.get("YEMP_SERVER_HOST", "0.0.0.0")

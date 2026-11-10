@@ -1,0 +1,5 @@
+{
+  "id": "shortcut",
+  "label": "Tasten-Kürzel",
+  "template": "learning_materials/shortcut.html"
+}

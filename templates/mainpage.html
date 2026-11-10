@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block title %}{{ course.title }} | Roberto Kätker{% endblock %}
+{% block page_class %} page--main{% endblock %}
 {% block page_styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/mainpage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classes/mainpage.css') }}">
 {% endblock %}
-{% block header_meta %}{{ course.semester }}{% endblock %}
+{% block header_meta %}{{ class_record.period }}{% endblock %}
 
 {% block content %}
     <div class="course-content">
-        <div class="indicator" aria-hidden="true"><span class="robot">&#129302;</span></div>
-        <p class="eyebrow">{{ course.provider }}</p>
+        <div class="indicator" aria-hidden="true"><span class="robot">{{ course.symbol }}</span></div>
+        <p class="eyebrow">{{ class_record.provider }}</p>
         <h1>{{ course.title }}</h1>
         <p class="description">{{ course.description }}</p>
 

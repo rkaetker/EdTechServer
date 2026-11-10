@@ -1,42 +1,79 @@
-import json
 from datetime import date
 
 from flask import Flask
-from routes import pages
+
+from src.classes.selector import (
+    ClassSelectionCancelled,
+    NoRunningClassesError,
+    select_running_class,
+)
+from src.content.repository import FileContentRepository
+from src.courses.file_storage import LocalCourseFileStorage
+from src.courses.images import LocalCourseImageStorage
+from src.routes.pages import pages
 from settings import (
+    CONTENT_DATA_DIR,
+    DEFAULT_CLASS_ID,
     DEBUG,
-    MAINPAGE_DATA_FILE,
-    SCRIPT_STORAGE_DIR,
     SERVER_HOST,
     SERVER_PORT,
-    SIDEBAR_DATA_FILE,
 )
 
-# Flask sucht HTML-Vorlagen im Ordner "templates" und CSS-Dateien in "static".
-app = Flask(__name__)
 
-# Kursstartseite und Navigation kommen aus dem in settings.py gewählten Ordner.
-with MAINPAGE_DATA_FILE.open(encoding="utf-8") as mainpage_file:
-    MAINPAGE_DATA = json.load(mainpage_file)
+def create_app(repository=None):
+    app = Flask(__name__)
+    app.extensions["content_repository"] = repository or FileContentRepository(
+        CONTENT_DATA_DIR
+    )
+    app.extensions["course_file_storage"] = LocalCourseFileStorage(
+        CONTENT_DATA_DIR
+    )
+    app.extensions["course_image_storage"] = LocalCourseImageStorage(
+        CONTENT_DATA_DIR
+    )
+    app.config["DEFAULT_CLASS_ID"] = DEFAULT_CLASS_ID
+    if DEFAULT_CLASS_ID:
+        running_class_ids = {
+            item["id"]
+            for item in app.extensions[
+                "content_repository"
+            ].list_running_classes()
+        }
+        if DEFAULT_CLASS_ID not in running_class_ids:
+            raise ValueError(
+                f"YEMP_DEFAULT_CLASS_ID={DEFAULT_CLASS_ID!r} must match "
+                "a class with status 'running'."
+            )
+    app.register_blueprint(pages)
 
-with SIDEBAR_DATA_FILE.open(encoding="utf-8") as sidebar_file:
-    SIDEBAR_DATA = json.load(sidebar_file)
+    @app.context_processor
+    def add_common_template_values():
+        return {"current_date": date.today().strftime("%d.%m.%Y")}
 
-app.config["MAINPAGE_DATA"] = MAINPAGE_DATA
-app.config["SIDEBAR_DATA"] = SIDEBAR_DATA
-app.config["SCRIPT_STORAGE_DIR"] = SCRIPT_STORAGE_DIR
-app.register_blueprint(pages)
+    return app
 
 
-@app.context_processor
-def add_sidebar_sections():
-    """Stellt gemeinsame Navigations- und Datumswerte in HTML-Vorlagen bereit."""
-    return {
-        "sidebar_sections": app.config["SIDEBAR_DATA"]["sections"],
-        "current_date": date.today().strftime("%d.%m.%Y"),
-    }
+app = create_app()
+
+
+def main():
+    """Choose a running class before starting the development server."""
+    repository = app.extensions["content_repository"]
+    try:
+        selected_class_id = select_running_class(repository)
+    except (ClassSelectionCancelled, NoRunningClassesError) as error:
+        print(error)
+        return 1
+
+    app.config["DEFAULT_CLASS_ID"] = selected_class_id
+    app.run(
+        host=SERVER_HOST,
+        port=SERVER_PORT,
+        debug=DEBUG,
+        use_reloader=False,
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    # Startet den Entwicklungsserver und macht ihn im lokalen Netzwerk erreichbar.
-    app.run(host=SERVER_HOST, port=SERVER_PORT, debug=DEBUG)
+    raise SystemExit(main())

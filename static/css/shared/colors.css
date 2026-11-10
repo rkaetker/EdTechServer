@@ -1,0 +1,85 @@
+/*
+ * Zentrale Farbpalette der gesamten Anwendung.
+ *
+ * Farben aus den anderen Stylesheets bitte nicht direkt anpassen: Dort werden
+ * diese Variablen verwendet. So lassen sich helle/dunkle Varianten und
+ * Akzentfarben an einer Stelle ändern, ohne einzelne Seiten zu übersehen.
+ */
+:root {
+    /* Grundfarben: Seitenhintergrund, Haupttext und neutrale Trennlinien. */
+    --color-page: #f3f6f2;
+    --color-ink: #18332d;
+    --color-ink-soft: #243a31;
+    --color-ink-deep: #123c2a;
+    --color-text-muted: #51655e;
+    --color-text-secondary: #63756c;
+    --color-text-green: #3e6254;
+    --color-border: #cbd6ce;
+    --color-border-soft: #d5dfd8;
+    --color-border-pale: #d5e0d9;
+    --color-border-subtle: #e1e8e3;
+    --color-border-faint: #e5ece7;
+
+    /* Akzente und grüne Zustände für Navigation, Buttons und Tastatur. */
+    --color-accent: #b45a36;
+    --color-green: #347b59;
+    --color-green-hover: #286849;
+    --color-green-soft: #e4f0e8;
+    --color-green-pale: #edf5ef;
+    --color-mainpage-badge: #e1f2e7;
+    --color-green-text: #37704f;
+    --color-green-deep: #37624f;
+    --color-green-dark: #315e49;
+    --color-green-muted: #47816d;
+    --color-green-heading: #527a68;
+    --color-green-key-active: #4d8067;
+    --color-green-highlight: #8fc7aa;
+
+    /* Zurückhaltende Textfarben und neutrale UI-Flächen. */
+    --color-text-subtle: #71827b;
+    --color-text-soft: #718078;
+    --color-text-faint: #72827b;
+    --color-text-disabled: #7a8a82;
+    --color-control-border: #aab7ad;
+    --color-key-border: #aab5ab;
+    --color-checkbox-border: #aebfb4;
+    --color-control-disabled: #aab9b0;
+    --color-key-base-shadow: #87948a;
+    --color-white: #fff;
+    --color-white-soft: rgba(255, 255, 255, .88);
+    --color-white-strong: rgba(255, 255, 255, .94);
+    --color-white-glow: rgba(255, 255, 255, .8);
+    --color-white-border: rgba(255, 255, 255, .9);
+    --color-white-border-soft: rgba(255, 255, 255, .4);
+
+    /* Hintergründe für Karten, Bedienelemente und Zustandsflächen. */
+    --color-surface-muted: #e5ebe4;
+    --color-surface-soft: #f0f5f1;
+    --color-surface-hover: #f4f8f5;
+    --color-surface-pale: #fbfdfb;
+    --color-surface-lesson: #f7f9f7;
+    --color-key-surface: #f0f3ee;
+    --color-key-gradient-start: #e4e9e2;
+    --color-key-gradient-end: #cfd8cf;
+    --color-key-active-start: #d7eee0;
+    --color-key-active-end: #b7d9c4;
+    --color-scrollbar-track: #e7eee9;
+    --color-sidebar: rgba(225, 234, 226, .78);
+
+    /* Dunkle Bildansicht sowie transparente Overlay- und Fokusfarben. */
+    --color-dialog: #111915;
+    --color-overlay: rgba(8, 14, 11, .94);
+    --color-overlay-control: rgba(24, 51, 45, .82);
+    --color-overlay-control-hover: rgba(255, 255, 255, .18);
+    --color-overlay-close: rgba(0, 0, 0, .45);
+    --color-shadow-black: rgba(0, 0, 0, .24);
+    --color-shadow-soft: rgba(24, 51, 45, .07);
+    --color-shadow-card: rgba(24, 51, 45, .09);
+    --color-shadow-sidebar: rgba(24, 51, 45, .12);
+    --color-shadow-keyboard: rgba(24, 51, 45, .12);
+    --color-shadow-key-press: rgba(24, 51, 45, .22);
+    --color-shadow-download: rgba(34, 68, 55, .08);
+    --color-focus-green: rgba(52, 123, 89, .25);
+    --color-grid-line: rgba(24, 51, 45, .035);
+    --color-dialog-divider: rgba(255, 255, 255, .2);
+}

@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Yemp EdTech{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shared/colors.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shared/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shared/sidebar.css') }}">
     {% block page_styles %}{% endblock %}
 </head>
 <body>
-    <div class="page">
+    <div class="page{% block page_class %}{% endblock %}">
         <header class="site-header">
             <span class="brand">Roberto Kätker</span>
             <span>{% block header_meta %}{% endblock %}</span>
@@ -30,14 +31,23 @@
                         {% if section.links %}
                         <ul>
                             {% for link in section.links %}
-                            <li><a href="{{ url_for('pages.course_page', page_id=link.page_id) }}">{{ link.label }}</a></li>
+                            <li>
+                                <a href="{{ url_for(
+                                    'pages.class_content',
+                                    class_id=class_record.id,
+                                    content_type=section.content_type,
+                                    content_id=link.id
+                                ) }}">{{ link.label }}</a>
+                            </li>
                             {% endfor %}
                         </ul>
                         {% endif %}
                     </section>
                     {% endfor %}
                 </nav>
-                <a class="home-button" href="{{ url_for('pages.index') }}" title="Zur Startseite">
+                <a class="home-button"
+                   href="{{ url_for('pages.class_home', class_id=class_record.id) }}"
+                   title="Zur Startseite">
                     <span class="home-icon" aria-hidden="true">&#8962;</span>
                     <span class="home-label">Zur Startseite</span>
                 </a>
@@ -53,7 +63,7 @@
             <span>{% block footer_note %}{{ current_date }}{% endblock %}</span>
         </footer>
     </div>
-    <script src="{{ url_for('static', filename='js/sidebar.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/shared/sidebar.js') }}" defer></script>
     {% block page_scripts %}{% endblock %}
 </body>
 </html>

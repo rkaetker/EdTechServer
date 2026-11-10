@@ -1,0 +1,13 @@
+{% macro element_card(element) %}
+<section class="lesson-element">
+    <header class="lesson-element-header">
+        <h2>{{ element.heading }}</h2>
+        {% if element.subtitle %}
+        <p>{{ element.subtitle }}</p>
+        {% endif %}
+    </header>
+    <div class="lesson-element-content">
+        {{ caller() }}
+    </div>
+</section>
+{% endmacro %}

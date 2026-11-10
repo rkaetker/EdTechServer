@@ -1,0 +1,40 @@
+{% from "lessons/elements/master.html" import element_card %}
+{% call element_card(element) %}
+<div class="lesson-gallery" role="region" tabindex="0"
+     aria-label="Bilder zu {{ element.heading }}. Horizontal scrollbar.">
+    {% for image in element.images %}
+    <article class="lesson-image-block">
+        <div class="lesson-image-preview">
+            <img
+                src="{{ url_for(
+                    'pages.course_lesson_image',
+                    class_id=class_record.id,
+                    filename=image.image
+                ) }}"
+                alt="{{ image.alt }}"
+                loading="lazy"
+            >
+            <button class="lesson-image-zoom" type="button"
+                    aria-label="Bild vergrößern: {{ image.heading }}"
+                    data-image-src="{{ url_for(
+                        'pages.course_lesson_image',
+                        class_id=class_record.id,
+                        filename=image.image
+                    ) }}"
+                    data-image-alt="{{ image.alt }}"
+                    data-image-heading="{{ image.heading }}"
+                    data-image-text="{{ image.text }}">
+                <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 5 5M10.8 7.5v6.6M7.5 10.8h6.6"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="lesson-image-caption">
+            <h3>{{ image.heading }}</h3>
+            <p>{{ image.text }}</p>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endcall %}

@@ -1,0 +1,5 @@
+{
+  "id": "download",
+  "label": "Download",
+  "template": "teacher_pages/download.html"
+}

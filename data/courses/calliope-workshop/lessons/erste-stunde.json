@@ -1,0 +1,122 @@
+{
+  "id": "erste-stunde",
+  "label": "Allgemeines",
+  "title": "Allgemeines",
+  "subtitle": "01 - Befehle, die Calliope und Downloads",
+  "description": "In dieser Stunde lernt Ihr wie man der Calliope sagt, was wie eure Befehle vom Computer auf die Calliope gelangen.",
+  "number": "01/12",
+  "elements": [
+    {
+      "type": "gallery",
+      "heading": "Die MakeCode-Oberfläche kennenlernen",
+      "subtitle": "Hier lernst du alles wichtige über die Calliope und wie man mit Ihr umgeht. Auf diese Seite kannst du immer wieder zurückkommen, wenn bestimmte Dinge vergessen hast.",
+      "images": [
+        {
+          "image": "erste-stunde/Übersicht_1.png",
+          "alt": "MakeCode-Editor mit Calliope-Simulator, Programmierblöcken und geöffnetem Download-Menü",
+          "heading": "Programm und Downloads im Blick",
+          "text": "Links siehst du den Calliope-Simulator, in der Mitte die Programmierblöcke. Im Download-Menü findest du die gespeicherte HEX-Datei deines Programms."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "Dein erstes Calliope-Projekt starten",
+      "subtitle": "Öffne MakeCode, erstelle ein neues Projekt und richte es für den Calliope mini ein.",
+      "images": [
+        {
+          "image": "erste-stunde/NeuesProjekt_1.png",
+          "alt": "Firefox-Adressleiste mit der Suche nach Calliope MakeCode",
+          "heading": "1. MakeCode im Browser suchen",
+          "text": "Öffne einen Browser, klicke oben in die Adressleiste und suche nach „Calliope MakeCode“."
+        },
+        {
+          "image": "erste-stunde/NeuesProjekt_2.png",
+          "alt": "Google-Suchergebnisse mit dem offiziellen Microsoft-MakeCode-Angebot für Calliope mini",
+          "heading": "2. Die MakeCode-Seite öffnen",
+          "text": "Wähle in den Suchergebnissen die offizielle Seite „Microsoft MakeCode for Calliope mini“ aus."
+        },
+        {
+          "image": "erste-stunde/NeuesProjekt_3.png",
+          "alt": "MakeCode-Startseite mit der Schaltfläche Neues Projekt",
+          "heading": "3. Ein neues Projekt anlegen",
+          "text": "Klicke auf „Neues Projekt“, um mit einem leeren Programm zu beginnen."
+        },
+        {
+          "image": "erste-stunde/NeuesProjekt_4.png",
+          "alt": "Dialog zum Erstellen eines Projekts mit Namensfeld und Erstellen-Schaltfläche",
+          "heading": "4. Projekt benennen",
+          "text": "Gib deinem Projekt einen passenden Namen und bestätige mit „Erstelle“."
+        },
+        {
+          "image": "erste-stunde/NeuesProjekt_5.png",
+          "alt": "Auswahl der Calliope-mini-Hardwareversionen V1, V2 und V3",
+          "heading": "5. Calliope-Version auswählen",
+          "text": "Wähle die Version deines Calliope mini aus. Wenn du unsicher bist, frage deine Lehrkraft."
+        },
+        {
+          "image": "erste-stunde/NeuesProjekt_6.png",
+          "alt": "Leerer MakeCode-Editor mit Simulator, Werkzeugkasten und Programmierfläche",
+          "heading": "6. Im Editor loslegen",
+          "text": "Jetzt ist dein Projekt bereit. In der Mitte kannst du Programmierblöcke ablegen; links siehst du die Vorschau."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "Dein Programm herunterladen und übertragen",
+      "subtitle": "Lade dein MakeCode-Programm herunter und bringe die HEX-Datei auf den Calliope mini.",
+      "images": [
+        {
+          "image": "erste-stunde/Download_3.jpg",
+          "alt": "Calliope mini neben einem Computer, verbunden mit einem USB-Kabel",
+          "heading": "1. Den Calliope per USB verbinden",
+          "text": "Verbinde den Calliope mini mit dem USB-Kabel mit dem Computer. Danach sollte das Gerät als Laufwerk angezeigt werden."
+        },
+        {
+          "image": "erste-stunde/Download_1.png",
+          "alt": "MakeCode-Editor mit hervorgehobener Herunterladen-Schaltfläche und geöffneten Downloads",
+          "heading": "2. Das Programm herunterladen",
+          "text": "Klicke in MakeCode auf „Herunterladen“. Dadurch wird dein Programm als HEX-Datei gespeichert."
+        },
+        {
+          "image": "erste-stunde/Download_2.png",
+          "alt": "Browser mit geöffneten Download-Fenster",
+          "heading": "3. Grap and Drop",
+          "text": "Die heruntergeladene Datei im Download-Fenster mit der Maus berühren, dann die linke Maustaste gedrückt halten."
+        },
+        {
+          "image": "erste-stunde/Download_4.png",
+          "alt": "Datei-Explorer mit dem Laufwerk MINI und einer ausgewählten Calliope-Projektdatei",
+          "heading": "4. Das Laufwerk MINI öffnen",
+          "text": "Öffne im Datei-Explorer das Laufwerk MINI. Dorthin wird die HEX-Datei kopiert, damit der Calliope dein Programm laden kann."
+        },
+        {
+          "image": "erste-stunde/Download_5.png",
+          "alt": "Datei-Explorer mit dem Laufwerk MINI und einer ausgewählten Calliope-Projektdatei",
+          "heading": "5. Die Datei loslassen",
+          "text": "Ziehe nun die geöffnete Datei in den Explorer und lasse sie lass (nimm den Finger von der linken Maustaste)."
+        },
+        {
+          "image": "erste-stunde/Download_6.png",
+          "alt": "Datei-Explorer zeigt das Laufwerk MINI und einen laufenden Kopiervorgang einer Projektdatei",
+          "heading": "6. Die HEX-Datei wird übertragen",
+          "text": "Beim Kopieren wird die heruntergeladene Programmdatei auf das Laufwerk MINI übertragen. Warte, bis der Kopiervorgang abgeschlossen ist."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "Anschlüsse an der Calliope",
+      "subtitle": "Der Calliope kann über USB mit dem Computer verbunden oder mit einem Batteriepack betrieben werden.",
+      "images": [
+        {
+          "image": "erste-stunde/Anschlüsse.jpg",
+          "alt": "Calliope mini mit USB-Kabel am Computer und angeschlossenem Batteriepack",
+          "heading": "USB und Batteriepack",
+          "text": "Das USB-Kabel verbindet den Calliope mit dem Computer (3). Das Batteriepack versorgt ihn unabhängig vom Computer mit Strom (2). An dem Batteriepack befindet sich ein An- und Ausschalter (1)."
+        }
+      ]
+    }
+  ]
+}

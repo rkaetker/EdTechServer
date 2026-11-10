@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Dateien herunterladen | {{ course.title }}{% endblock %}
+{% block header_meta %}Lehrerbereich{% endblock %}
+{% block page_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher_pages/lehrerbereich.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="download-page" aria-labelledby="download-title">
+        <header class="download-heading">
+            <p class="download-eyebrow">Lehrerbereich · {{ course.title }}</p>
+            <h1 id="download-title">Kursdateien herunterladen</h1>
+            <p class="download-subtitle">
+                Wähle einzelne Dateien oder ganze Ordner aus. Deine Auswahl wird
+                gesammelt als ZIP-Datei heruntergeladen.
+            </p>
+        </header>
+
+        <form class="download-panel"
+              action="{{ url_for('pages.download_course_files', class_id=class_record.id) }}"
+              method="post"
+              data-download-form>
+            <div class="download-panel-heading">
+                <div>
+                    <h2>Dateien und Ordner</h2>
+                    <p>Quelle: <code>{{ course.id }}/files</code></p>
+                </div>
+                <span class="download-count" data-selection-count aria-live="polite">
+                    0 ausgewählt
+                </span>
+            </div>
+
+            {% if course_files %}
+            <ul class="file-list" aria-label="Dateien des Kurses">
+                {% for item in course_files %}
+                <li class="file-row{% if item.is_dir %} file-row--folder{% endif %}"
+                    style="--file-depth: {{ item.depth }}">
+                    <label class="file-choice">
+                        <input type="checkbox"
+                               name="selected_paths"
+                               value="{{ item.path }}"
+                               data-file-path="{{ item.path }}"
+                               {% if item.is_dir %}data-folder-checkbox{% endif %}>
+                        <span class="file-checkbox" aria-hidden="true"></span>
+                        <span class="file-icon" aria-hidden="true">
+                            {% if item.is_dir %}&#128193;{% else %}&#128196;{% endif %}
+                        </span>
+                        <span class="file-name">{{ item.name }}</span>
+                        <span class="file-kind">
+                            {% if item.is_dir %}Ordner{% else %}{{ item.size|filesizeformat }}{% endif %}
+                        </span>
+                    </label>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="download-actions">
+                <p>Ausgewählte Ordner werden vollständig mit ihren Unterordnern gepackt.</p>
+                <button class="download-button" type="submit" data-download-button disabled>
+                    <span aria-hidden="true">&#8595;</span>
+                    Auswahl herunterladen
+                </button>
+            </div>
+            {% else %}
+            <div class="download-empty">
+                <span class="download-empty-icon" aria-hidden="true">&#128193;</span>
+                <h3>Noch keine Kursdateien vorhanden</h3>
+                <p>
+                    Lege die Dateien für diesen Kurs in
+                    <code>data/courses/{{ course.id }}/files/</code> ab.
+                    Danach erscheinen sie hier automatisch.
+                </p>
+            </div>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}
+
+{% block page_scripts %}
+    <script src="{{ url_for('static', filename='js/teacher_pages/download.js') }}" defer></script>
+{% endblock %}

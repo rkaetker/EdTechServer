@@ -1,0 +1,11 @@
+   {
+     "id": "D4E5F6",
+     "name": "Calliope Workshop",
+     "course_id": "calliope-workshop",
+     "overrides": {},
+     "content": {
+       "lessons": ["erste-stunde","zweite-stunde","dritte-stunde"],
+       "learning_materials": ["shortcut"],
+       "teacher_pages": ["download"]
+     }
+   }

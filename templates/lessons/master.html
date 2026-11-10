@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% set element_types = lesson.elements | map(attribute="type") | unique | list %}
+
+{% block title %}{{ lesson.title }} | Yemp EdTech{% endblock %}
+{% block header_meta %}Stunde{% endblock %}
+{% block page_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons/page.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons/elements/master.css') }}">
+    {% for element_type in element_types %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lessons/elements/' ~ element_type ~ '.css') }}">
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+<article class="lesson-page">
+    <header class="lesson-header">
+        <p class="lesson-eyebrow">Stunde</p>
+        <h1>{{ lesson.title }}</h1>
+        <p class="lesson-subtitle">{{ lesson.subtitle }}</p>
+        <p class="lesson-description">{{ lesson.description }}</p>
+    </header>
+
+    <section class="lesson-content">
+        {% for element in lesson.elements %}
+        {% include "lessons/elements/" ~ element.type ~ ".html" %}
+        {% endfor %}
+    </section>
+
+    <footer class="lesson-footer">
+        <span class="lesson-number">{{ lesson.number }}</span>
+        <time class="lesson-date">{{ current_date }}</time>
+    </footer>
+</article>
+{% if "gallery" in element_types %}
+<dialog class="lesson-image-dialog" aria-labelledby="lesson-image-dialog-heading">
+    <button class="lesson-image-dialog-close" type="button" aria-label="Bildansicht schließen">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <img class="lesson-image-dialog-image" alt="">
+    <div class="lesson-image-dialog-caption">
+        <h2 id="lesson-image-dialog-heading"></h2>
+        <p></p>
+    </div>
+</dialog>
+{% endif %}
+{% endblock %}
+
+{% block page_scripts %}
+    {% if "gallery" in element_types %}
+    <script src="{{ url_for('static', filename='js/lessons/elements/gallery.js') }}" defer></script>
+    {% endif %}
+{% endblock %}

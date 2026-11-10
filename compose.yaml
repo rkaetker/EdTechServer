@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      YEMP_DEFAULT_CLASS_ID: ${YEMP_DEFAULT_CLASS_ID:-D4E5F6}
+      YEMP_CONTENT_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data:ro
+    restart: unless-stopped
