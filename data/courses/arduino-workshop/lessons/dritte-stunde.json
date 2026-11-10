@@ -2,8 +2,64 @@
   "id": "dritte-stunde",
   "label": "Das LCD-Display",
   "title": "Das LCD-Display",
-  "subtitle": "",
-  "description": "",
+  "subtitle": "Anschließen und eigene Nachrichten anzeigen",
+  "description": "Du lernst, ein LCD-Display mit I²C-Anschluss mit dem Arduino zu verbinden und Text auf seinen beiden Zeilen auszugeben.",
   "number": "03/12",
-  "elements": []
+  "elements": [
+    {
+      "type": "instructions",
+      "heading": "Das Display mit dem Arduino verbinden",
+      "subtitle": "Schalte den Arduino aus und ziehe das USB-Kabel ab, bevor du die Kabel einsteckst.",
+      "steps": [
+        {
+          "heading": "GND verbinden",
+          "text": "Verbinde GND am Display mit einem GND-Anschluss am Arduino. GND ist die gemeinsame Masse."
+        },
+        {
+          "heading": "Stromversorgung verbinden",
+          "text": "Verbinde VCC am Display mit 5V am Arduino, sofern dein Display für 5V ausgelegt ist. Prüfe im Zweifel die Beschriftung oder frage deine Lehrkraft."
+        },
+        {
+          "heading": "I²C-Datenleitungen verbinden",
+          "text": "Verbinde SDA mit SDA und SCL mit SCL. Beim Arduino Uno liegen SDA und SCL auf A4 und A5; beim Uno R3 kannst du auch die zusätzlich beschrifteten SDA- und SCL-Anschlüsse verwenden. Bei anderen Arduino-Modellen gelten möglicherweise andere Pins."
+        },
+        {
+          "heading": "Verbindungen kontrollieren",
+          "text": "Vergleiche jede Leitung mit dem Anschlussbild. Achte darauf, dass keine benachbarten Pins versehentlich überbrückt sind. Bitte deine Lehrkraft um eine Kontrolle, bevor du den Arduino wieder mit Strom versorgst."
+        },
+        {
+          "heading": "Nachricht anzeigen",
+          "text": "Stecke das USB-Kabel wieder ein. Mit display_an() schaltest du das Display ein. Rufe erste_reihe_zeige(\"Hallo!\") oder zweite_reihe_zeige(\"Arduino\") auf, um Text auf der ersten oder zweiten Zeile auszugeben. Die Texte stehen in Anführungszeichen."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "Anschlussbild für das I²C-LCD",
+      "subtitle": "Orientiere dich an den Beschriftungen GND, VCC, SDA und SCL am Display.",
+      "images": [
+        {
+          "image": "dritte-stunde/Schaltplan.png",
+          "alt": "Anschlussbild: Ein I²C-LCD mit den Anschlüssen GND, VCC, SDA und SCL ist mit einem Arduino Uno verbunden.",
+          "heading": "Display und Arduino verbinden",
+          "text": "Verbinde gleich beschriftete Anschlüsse: GND mit GND, VCC mit der passenden Versorgung sowie SDA mit SDA und SCL mit SCL. Beachte für die genaue Pinbelegung die Hinweise in der Anleitung und die Beschriftungen deines Arduino."
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Befehle für das LCD",
+      "subtitle": "Mit diesen vorbereiteten Funktionen kannst du Text anzeigen und die Zeilen oder das ganze Display steuern.",
+      "headers": ["Befehl", "Erklärung"],
+      "rows": [
+        ["void erste_reihe_zeige();", "Zeigt den übergebenen Text in der ersten Zeile an. Beispiel: erste_reihe_zeige(\"Hallo!\");"],
+        ["void zweite_reihe_zeige();", "Zeigt den übergebenen Text in der zweiten Zeile an. Beispiel: zweite_reihe_zeige(\"Arduino\");"],
+        ["void erste_reihe_loesche();", "Löscht den Text in der ersten Zeile."],
+        ["void zweite_reihe_loesche();", "Löscht den Text in der zweiten Zeile."],
+        ["void beide_reihen_loeschen();", "Löscht den Inhalt beider Zeilen."],
+        ["void display_an();", "Schaltet die Anzeige des LCDs ein."],
+        ["void display_aus();", "Schaltet die Anzeige des LCDs aus."]
+      ]
+    }
+  ]
 }

@@ -1,0 +1,24 @@
+{% from "lessons/elements/master.html" import element_card %}
+{% call element_card(element) %}
+<div class="lesson-table-wrapper" role="region" tabindex="0"
+     aria-label="Tabelle: {{ element.heading }}. Horizontal scrollbar.">
+    <table class="lesson-table" aria-label="{{ element.heading }}">
+        <thead>
+            <tr>
+                {% for header in element.headers %}
+                <th scope="col">{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in element.rows %}
+            <tr>
+                {% for header in element.headers %}
+                <td>{{ row[loop.index0] if loop.index0 < row|length else "" }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endcall %}

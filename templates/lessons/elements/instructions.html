@@ -1,0 +1,11 @@
+{% from "lessons/elements/master.html" import element_card %}
+{% call element_card(element) %}
+<ol class="lesson-instructions">
+    {% for step in element.steps %}
+    <li class="lesson-instruction-step">
+        <h3>{{ step.heading }}</h3>
+        <p>{{ step.text }}</p>
+    </li>
+    {% endfor %}
+</ol>
+{% endcall %}

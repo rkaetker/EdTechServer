@@ -5,6 +5,8 @@ from pathlib import Path
 from urllib.parse import quote
 from unittest.mock import Mock
 
+from flask import render_template
+
 from app import create_app
 from src.classes.service import ClassContentService
 from src.content.repository import FileContentRepository
@@ -83,6 +85,44 @@ class ClassPageTests(unittest.TestCase):
         self.assertIn(quote("Übersicht_1.png").encode(), response.data)
         self.assertIn(b"01/12", response.data)
         self.assertIn(b"lesson-date", response.data)
+
+    def test_arduino_lcd_lesson_renders_instructions_image_and_command_table(self):
+        response = self.client.get(
+            "/classes/A1B2C3/lessons/dritte-stunde"
+        )
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Das Display mit dem Arduino verbinden", response.data)
+        self.assertIn(b"Anschlussbild f\xc3\xbcr das I\xc2\xb2C-LCD", response.data)
+        self.assertIn(b"dritte-stunde/Schaltplan.png", response.data)
+        self.assertIn(b"erste_reihe_zeige", response.data)
+        self.assertIn(b"zweite_reihe_zeige", response.data)
+        self.assertIn(b"beide_reihen_loeschen", response.data)
+        self.assertIn(b"display_aus", response.data)
+        self.assertIn(b"display_an", response.data)
+
+    def test_table_element_renders_all_columns_and_highlights_header(self):
+        element = {
+            "heading": "Bauteile",
+            "subtitle": "Ein Vergleich",
+            "headers": ["Name", "Aufgabe", "Farbe"],
+            "rows": [["LED", "Leuchtet", "Rot"]],
+        }
+
+        with self.app.test_request_context():
+            response = render_template(
+                "lessons/elements/table.html",
+                element=element,
+            )
+
+        self.assertIn('<thead>', response)
+        self.assertIn('<th scope="col">Name</th>', response)
+        self.assertIn('<th scope="col">Aufgabe</th>', response)
+        self.assertIn('<th scope="col">Farbe</th>', response)
+        self.assertEqual(response.count('<th scope="col">'), 3)
+        self.assertIn("<td>LED</td>", response)
+        self.assertIn("<td>Leuchtet</td>", response)
+        self.assertIn("<td>Rot</td>", response)
 
     def test_unselected_content_is_not_available(self):
         response = self.client.get(
@@ -221,6 +261,8 @@ class ClassPageTests(unittest.TestCase):
             "css/lessons/page.css",
             "css/lessons/elements/master.css",
             "css/lessons/elements/gallery.css",
+            "css/lessons/elements/instructions.css",
+            "css/lessons/elements/table.css",
             "js/lessons/elements/gallery.js",
             "css/learning_materials/shortcut.css",
             "css/teacher_pages/lehrerbereich.css",
